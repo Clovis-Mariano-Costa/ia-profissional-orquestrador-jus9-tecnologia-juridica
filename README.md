@@ -1,17 +1,9 @@
 # Orquestrador IA Profissional Jus 9
 
-## Repertório
+Repertório: `ia-profissional-jus9-orquestrador`
 
-`ia-profissional-jus9-orquestrador`
+Status: novo/técnico
 
-## Status
+Mão na Massa Final — padrão visual, assinatura, governança e orientação obrigatória.
 
-novo
-
-## Fase
-
-Pré-Mão na Massa — Pacote Governança encerrado.
-
-## Finalidade
-
-Cria base para modos de IA, roteamento seguro, prompts, limites, governança da Charlie Echo e integração futura com APIs.
+© Jus 9 Tecnologia Jurídica — software livre, autoria preservada.

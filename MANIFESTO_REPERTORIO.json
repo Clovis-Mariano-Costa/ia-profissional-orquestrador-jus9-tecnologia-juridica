@@ -1,7 +1,7 @@
 {
   "repo": "ia-profissional-jus9-orquestrador",
-  "status": "novo",
+  "status": "novo/técnico",
   "title": "Orquestrador IA Profissional Jus 9",
-  "fase": "pre-mao-na-massa-governanca-encerrada",
-  "created_at": "2026-05-15T01:21:57.319026+00:00"
+  "summary": "chore: preparar orquestrador da IA profissional",
+  "created_at": "2026-05-15T17:44:09.478640+00:00"
 }
