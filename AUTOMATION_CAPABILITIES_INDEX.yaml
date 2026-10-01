@@ -1,0 +1,57 @@
+schema: JUS9_ORCHESTRA_CAPABILITIES_V1
+state: OPERACIONAL_EM_TESTE
+rules: [CAPABILITY_BEFORE_SCHEDULER, ONE_REQUEST_ID, EVIDENCE_FIRST, FAIL_CLOSED]
+
+schedulers:
+  AUT-001:
+    role: shared_executor
+    name: Orquestra Diaria Jus 9
+    default_daily_budget_minutes: 12
+  AUT-000:
+    role: supervisor
+    name: Mestre da Orquestra
+    default_daily_budget_minutes: 3
+  IACOM_PERIODIC_REVIEW:
+    role: periodic_health_review
+    max_interval_days: 60
+    rule: not_forced_rewrite
+
+capabilities:
+  IACOM_LANGUAGE_HEALTH:
+    placement: AUT-001_or_periodic_review
+    merit_change: forbidden
+  ECHO_PUBLICATION_NOTICE:
+    placement: event_driven_preferred
+    source_events: [LIBRARY_PUBLICATION_CONFIRMED, VADEMECUM_PUBLICATION_CONFIRMED]
+    rule: NOTIFY != AUTHORIZE_READ
+  ECHO_TEACHBACK_SUPPORT:
+    placement: AUT-001_or_learning_service
+    confirmation: guided_human_API_validation_required_for_now
+  SECURITY_REPLICATION_WATCH:
+    placement: event_driven_preferred
+    owner: Seguranca-e-Acessos
+  README_CANONICAL_POINTER_VALIDATOR:
+    placement: AUT-001
+  BROKEN_LINK_WATCHER:
+    placement: AUT-001
+  REPO_CLASSIFICATION_VALIDATOR:
+    placement: AUT-001
+  PR_WORKFLOW_STATUS_WATCHER:
+    placement: AUT-001
+  PROTOCOL_HEALTH:
+    placement: AUT-001
+  CONTINUITY_HEALTH:
+    placement: AUT-001
+  ROUTING_LEDGER:
+    placement: AgentRouter_future
+
+promotion_to_dedicated_scheduler_requires:
+  - recurring_work_or_real_future_hinge
+  - canonical_inbox
+  - functional_owner
+  - continuity
+  - measured_volume_or_latency_need
+  - known_budget
+  - rollback
+  - no_equivalent_scheduler
+  - dry_run_or_test
